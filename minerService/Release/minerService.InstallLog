@@ -1,0 +1,486 @@
+﻿Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется откат для сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Восстанавливается исходное состояние журнала событий для источника Miner_Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller на этапе отката возникло исключение.
+System.Security.SecurityException: Источник не найден, но не удалось выполнить поиск по нескольким или всем журналам событий.  Недоступные журналы: Security.
+На этапе отката процедуры установки возникло исключение. Это исключение будет проигнорировано, и откат будет продолжен. Однако после завершения отката компьютер может не вернуться полностью в исходное состояние.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется откат для сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Восстанавливается исходное состояние журнала событий для источника Miner_Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller на этапе отката возникло исключение.
+System.Security.SecurityException: Источник не найден, но не удалось выполнить поиск по нескольким или всем журналам событий.  Недоступные журналы: Security.
+На этапе отката процедуры установки возникло исключение. Это исключение будет проигнорировано, и откат будет продолжен. Однако после завершения отката компьютер может не вернуться полностью в исходное состояние.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется откат для сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Восстанавливается исходное состояние журнала событий для источника Miner_Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller на этапе отката возникло исключение.
+System.Security.SecurityException: Источник не найден, но не удалось выполнить поиск по нескольким или всем журналам событий.  Недоступные журналы: Security.
+На этапе отката процедуры установки возникло исключение. Это исключение будет проигнорировано, и откат будет продолжен. Однако после завершения отката компьютер может не вернуться полностью в исходное состояние.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Попытка останова службы Miner_Service.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Попытка останова службы Miner_Service.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется откат для сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Восстанавливается исходное состояние журнала событий для источника Miner_Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller на этапе отката возникло исключение.
+System.Security.SecurityException: Источник не найден, но не удалось выполнить поиск по нескольким или всем журналам событий.  Недоступные журналы: Security.
+На этапе отката процедуры установки возникло исключение. Это исключение будет проигнорировано, и откат будет продолжен. Однако после завершения отката компьютер может не вернуться полностью в исходное состояние.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller во время установки возникло исключение.
+System.Security.SecurityException: Запрошенный доступ к реестру запрещен.
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется откат для сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Восстанавливается исходное состояние журнала событий для источника Miner_Service.
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller во время установки возникло исключение.
+System.Security.SecurityException: Запрошенный доступ к реестру запрещен.
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется откат для сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Восстанавливается исходное состояние журнала событий для источника Miner_Service.
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller во время установки возникло исключение.
+System.Security.SecurityException: Запрошенный доступ к реестру запрещен.
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller во время установки возникло исключение.
+System.Security.SecurityException: Запрошенный доступ к реестру запрещен.
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется откат для сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Восстанавливается исходное состояние журнала событий для источника Miner_Service.
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller во время установки возникло исключение.
+System.Security.SecurityException: Запрошенный доступ к реестру запрещен.
+При удалении из системы возникло исключение. Это исключение будет проигнорировано, и удаление из системы будет продолжено. Однако после завершения удаления данное приложение может оказаться не полностью удаленным.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется откат для сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Восстанавливается исходное состояние журнала событий для источника Miner_Service.
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется откат для сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Восстанавливается исходное состояние журнала событий для источника Miner_Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller на этапе отката возникло исключение.
+System.Security.SecurityException: Источник не найден, но не удалось выполнить поиск по нескольким или всем журналам событий.  Недоступные журналы: Security.
+На этапе отката процедуры установки возникло исключение. Это исключение будет проигнорировано, и откат будет продолжен. Однако после завершения отката компьютер может не вернуться полностью в исходное состояние.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Выполняется удаление источника EventLog Miner_Service.
+Выполняется удаление службы Miner_Service из системы...
+Служба Miner_Service успешно удалена из системы.
+Выполняется установка сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
+Устанавливается служба Miner_Service...
+Служба Miner_Service успешно установлена.
+Создается исходный EventLog Miner_Service в журнале Application...
+Выполняется фиксация сборки 'C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.exe
+   logfile = C:\Users\xayk.KOMPANDREYA\Source\Repos\minerService\minerService\bin\Release\minerService.InstallLog
