@@ -71,9 +71,17 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Release\installservice.bat" />
+    <None Include="Release\InstallUtil.InstallLog" />
+    <None Include="Release\minerService.exe.config" />
+    <None Include="Release\minerService.InstallLog" />
+    <None Include="Release\minerService.InstallState" />
+    <None Include="Release\uninstallservice.bat" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Release\" />
+    <Content Include="Release\minerService.exe" />
+    <Content Include="Release\minerService.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
