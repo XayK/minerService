@@ -166,14 +166,12 @@ namespace minerService
 
             foreach (var hardwareItem in myComputer.Hardware)
             {
-                if (hardwareItem.HardwareType == OpenHardwareMonitor.Hardware.HardwareType.GpuNvidia)
-                {
+
                     foreach (var sensor in hardwareItem.Sensors)
                     {
                         if (sensor.SensorType == OpenHardwareMonitor.Hardware.SensorType.Temperature)
                             return (float)sensor.Value;
                     }
-                }
             }
             return 0;
         }
