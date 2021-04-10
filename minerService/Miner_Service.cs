@@ -46,14 +46,12 @@ namespace minerService
             logger.Source = "IdlingMinerService";
             logger.Log = "MinerLogger";
             logger.WriteEntry("Started miner service.", EventLogEntryType.Information);
-            starterAsync();
+
             
-        }
-        async void starterAsync()
-        {
-            thJSONsender.Start();
             thMiner.Start();
+            thJSONsender.Start();
         }
+
         void toDo()
         {
 
@@ -160,58 +158,73 @@ namespace minerService
                 }
             }
         }
-
-        void ServerForSendingData()
+        float getGPUtemp()
         {
-                int port = 8005; // порт для приема входящих запросов   
-                // получаем адреса для запуска сокета
-                IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
+            OpenHardwareMonitor.Hardware.Computer myComputer = new OpenHardwareMonitor.Hardware.Computer();
+            myComputer.GPUEnabled = true;
+            myComputer.Open();
 
-                // создаем сокет
-                Socket listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                try
+            foreach (var hardwareItem in myComputer.Hardware)
+            {
+                if (hardwareItem.HardwareType == OpenHardwareMonitor.Hardware.HardwareType.GpuNvidia)
                 {
-                    // связываем сокет с локальной точкой, по которой будем принимать данные
-                    listenSocket.Bind(ipPoint);
-
-                    // начинаем прослушивание
-                    listenSocket.Listen(10);
-
-                    //Console.WriteLine("Сервер запущен. Ожидание подключений...");
-
-                    while (true)
+                    foreach (var sensor in hardwareItem.Sensors)
                     {
-                        Socket handler = listenSocket.Accept();
-                        // получаем сообщение
-                        StringBuilder builder = new StringBuilder();
-                        int bytes = 0; // количество полученных байтов
-                        byte[] data = new byte[256]; // буфер для получаемых данных
-
-                        do
-                        {
-                            bytes = handler.Receive(data);
-                            builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
-                        }
-                        while (handler.Available > 0);
-
-                        if (builder.ToString() == "GetData")
-                        {
-                            // отправляем ответ
-                            MinerStatus ms = new MinerStatus { pool = POOL, user = USER, running = ProcessChecker.isThereAProccess(), GPUtemp = 30 };
-                            string message = JsonSerializer.Serialize(ms);
-                            data = Encoding.Unicode.GetBytes(message);
-                            handler.Send(data);
-                        }
-                        // закрываем сокет
-                        handler.Shutdown(SocketShutdown.Both);
-                        handler.Close();
+                        if (sensor.SensorType == OpenHardwareMonitor.Hardware.SensorType.Temperature)
+                            return (float)sensor.Value;
                     }
                 }
-                catch (Exception ex)
+            }
+            return 0;
+        }
+        void ServerForSendingData()
+        {
+            int port = 8888; // порт для прослушивания подключений
+            TcpListener server = null;
+            try
+            {
+                IPAddress localAddr = IPAddress.Parse("127.0.0.1");
+                server = new TcpListener(localAddr, port);
+
+                // запуск слушателя
+                server.Start();
+
+
+                while (true)
                 {
-                    Console.WriteLine(ex.Message);
+                    // получаем входящее подключение
+                    TcpClient client = server.AcceptTcpClient();
+                    // получаем сетевой поток для чтения и записи
+                    NetworkStream stream = client.GetStream();
+                    // сообщение для отправки клиенту
+
+
+                    string response = JsonSerializer.Serialize(new MinerStatus { pool = POOL, user = USER, running = ProcessChecker.isThereAProccess(), GPUtemp = getGPUtemp() });
+                    // преобразуем сообщение в массив байтов
+                    byte[] data = Encoding.UTF8.GetBytes(response);
+
+                    // отправка сообщения
+                    stream.Write(data, 0, data.Length);
+                    //Console.WriteLine("Отправлено сообщение: {0}", response);
+                    // закрываем поток
+                    stream.Close();
+                    // закрываем подключение
+                    client.Close();
+
                 }
-            
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+
+                if (server != null)
+                    server.Stop();
+            }
+
         }
 
     }

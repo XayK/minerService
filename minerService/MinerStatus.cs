@@ -11,7 +11,7 @@ namespace minerService
         public string user { get; set; }
         public string pool { get; set; }
 
-        public int GPUtemp { get; set; }
+        public float GPUtemp { get; set; }
 
         public bool running { get; set; }
     }
