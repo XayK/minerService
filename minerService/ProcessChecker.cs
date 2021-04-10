@@ -6,18 +6,23 @@ namespace minerService
 {
     class ProcessChecker
     {
+
+        public static string PN = "nbminer";
         public static bool isThereAProccess()
         {
-            Process[] listProc = Process.GetProcesses();
-            foreach (var p in listProc)
-            {
-                if (p.ProcessName == PN)
-                {
-                    return true;
-                }
-            }
-            return false;
+            Process[] listProc = Process.GetProcessesByName(PN);
+            if (listProc.Length == 0)
+                return false;
+            else
+                return true;
         }
-        public static string PN = "none";
+        public static bool isUserLoged()
+        {
+            Process[] proc = Process.GetProcessesByName("LogonUI");
+            if (proc.Length == 0)
+                return false;
+            else
+                return true;
+        }
     }
 }
