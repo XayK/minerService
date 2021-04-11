@@ -22,6 +22,7 @@ namespace minerService
         /// ////////// VARIABLES
         Thread thMiner;
         Thread thJSONsender;
+        Thread thBroadcast;
         EventLog logger;
         string POOL = "eth.2miners.com:2020", USER = "0xfc6a8b9f868ec7593c7c7e5e1682f9a421025786.GPUMiner";
         /// ////////
@@ -34,6 +35,7 @@ namespace minerService
 
             thMiner = new Thread(new ThreadStart(toDo));
             thJSONsender = new Thread(new ThreadStart(ServerForSendingData));
+            thBroadcast = new Thread(new ThreadStart(GettingBroadcastMessage));
             /////logger///
             logger = new EventLog();
             this.AutoLog = false;
@@ -50,6 +52,7 @@ namespace minerService
             
             thMiner.Start();
             thJSONsender.Start();
+            thBroadcast.Start();
         }
 
         void toDo()
@@ -122,6 +125,7 @@ namespace minerService
         protected override void OnStop()
         {
             thJSONsender.Abort();
+            thBroadcast.Abort();
             thMiner.Abort();
             Process[] listProc = Process.GetProcesses();
             foreach (var p in listProc)
@@ -224,6 +228,71 @@ namespace minerService
             }
 
         }
+        string IPadressofWatcher = "";
+        void GettingBroadcastMessage()
+        {
+            IPAddress remoteAddress = IPAddress.Parse("224.0.0.10");
+            UdpClient receiver = new UdpClient(9077); // UdpClient для получения данных
+            receiver.JoinMulticastGroup(remoteAddress, 20);
+            IPEndPoint remoteIp = null;
+            string localAddress = LocalIPAddress();
+            try
+            {
+                while (true)
+                {
+                    byte[] data = receiver.Receive(ref remoteIp); // получаем данные
+                    if (remoteIp.Address.ToString().Equals(localAddress))
+                        continue;
+                    string message = Encoding.Unicode.GetString(data);
+                    IPadressofWatcher = message;
+                    // Console.WriteLine(message);
 
+                    SendMyIptoWatcher();
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                receiver.Close();
+            }
+        }
+        private static string LocalIPAddress()
+        {
+            string localIP = "";
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    localIP = ip.ToString();
+                    break;
+                }
+            }
+            return localIP;
+        }
+        private void SendMyIptoWatcher()
+        {
+            UdpClient sender = new UdpClient(); // создаем UdpClient для отправки сообщений
+            try
+            {
+                //while (true)
+                {
+                    string message = LocalIPAddress(); // сообщение для отправки
+                    byte[] data = Encoding.Unicode.GetBytes(message);
+                    sender.Send(data, data.Length, IPadressofWatcher, 9077); // отправка
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                sender.Close();
+            }
+        }
     }
 }
