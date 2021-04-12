@@ -27,12 +27,12 @@ namespace minerService
 
         Process nbProcess;
         string POOL = "eth.2miners.com:2020", USER = "0xfc6a8b9f868ec7593c7c7e5e1682f9a421025786.GPUMiner";
-        bool Runes = true;
+        int Runes = 1;
         /// ////////
         /// ЗАПУСК
         protected override void OnStart(string[] args)
         {
-            Runes = true;
+            Runes = 1;
             /////////////////Загрузка настроек
             ReadSettingAsync();
             ///////////////
@@ -62,25 +62,30 @@ namespace minerService
             nbProcess.StartInfo.CreateNoWindow = true;
 
             thMiner.Start();
-            //thJSONsender.Start();
-            //thBroadcast.Start();
+            thJSONsender.Start();
+            thBroadcast.Start();
         }
         /// <summary>
         /// ////ОСТАНОВКА
         /// </summary>
         protected override void OnStop()
         {
-            Runes = false;
+            Interlocked.Exchange(ref Runes, 0);
+            //Runes = 0;
             try
             {
                 while (thJSONsender.IsAlive)
                 {
+                    logger.WriteEntry("Closing #1 listener.", EventLogEntryType.Warning);
                     thJSONsender.Abort();
+                    
                     Thread.Sleep(1000);
                 }
                 while (thBroadcast.IsAlive)
                 {
+                    logger.WriteEntry("Closing #2 listener.", EventLogEntryType.Warning);
                     thBroadcast.Abort();
+                    
                     Thread.Sleep(1000);
                 }
                 thMiner.Abort();
@@ -224,8 +229,9 @@ namespace minerService
                 // запуск слушателя
                 server.Start();
 
+               
 
-                while (Runes)
+                while (Runes==1)
                 {
                     // получаем входящее подключение
                     TcpClient client = server.AcceptTcpClient();
@@ -247,11 +253,12 @@ namespace minerService
                     client.Close();
 
                 }
+                logger.WriteEntry(Runes.ToString(), EventLogEntryType.Error);
 
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                logger.WriteEntry(e.Message, EventLogEntryType.Error);
             }
             finally
             {
@@ -271,7 +278,7 @@ namespace minerService
             string localAddress = LocalIPAddress();
             try
             {
-                while (Runes)
+                while (Runes==1)
                 {
                     byte[] data = receiver.Receive(ref remoteIp); // получаем данные
                     if (remoteIp.Address.ToString().Equals(localAddress))
