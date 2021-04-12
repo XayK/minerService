@@ -24,10 +24,12 @@ namespace minerService
         Thread thJSONsender;
         Thread thBroadcast;
         EventLog logger;
+
+        Process nbProcess;
         string POOL = "eth.2miners.com:2020", USER = "0xfc6a8b9f868ec7593c7c7e5e1682f9a421025786.GPUMiner";
         bool Runes = true;
         /// ////////
-        /// 
+        /// ЗАПУСК
         protected override void OnStart(string[] args)
         {
             Runes = true;
@@ -51,13 +53,60 @@ namespace minerService
             logger.Log = "MinerLogger";
             logger.WriteEntry("Started miner service.", EventLogEntryType.Information);
 
-            
+            nbProcess = new Process();
+            nbProcess.StartInfo.FileName = @"С:\nb\nbminer.exe";
+            nbProcess.StartInfo.UseShellExecute = false;
+            nbProcess.StartInfo.RedirectStandardError = true;
+            nbProcess.StartInfo.RedirectStandardInput = true;
+            nbProcess.StartInfo.RedirectStandardOutput = true;
+            nbProcess.StartInfo.CreateNoWindow = true;
+
             thMiner.Start();
             //thJSONsender.Start();
             //thBroadcast.Start();
         }
+        /// <summary>
+        /// ////ОСТАНОВКА
+        /// </summary>
+        protected override void OnStop()
+        {
+            Runes = false;
+            try
+            {
+                while (thJSONsender.IsAlive)
+                {
+                    thJSONsender.Abort();
+                    Thread.Sleep(1000);
+                }
+                while (thBroadcast.IsAlive)
+                {
+                    thBroadcast.Abort();
+                    Thread.Sleep(1000);
+                }
+                thMiner.Abort();
+            }
+            catch(Exception ex)
+            {
+                logger.WriteEntry(ex.Message, EventLogEntryType.Error);
+            }
+            Process[] listProc = Process.GetProcesses();
+            foreach (var p in listProc)
+            {
+                if (p.ProcessName == ProcessChecker.PN)
+                {
+                    p.Kill();
+                    p.Dispose();
+                    logger.WriteEntry("Stoping Miner on service logout.", EventLogEntryType.Warning);
+                }
+            }
+            logger.WriteEntry("Service is shutted down.", EventLogEntryType.Warning);
+        }
 
-        void toDo()
+        /// <summary>
+        /// ///////////
+        /// ////////////
+        /// </summary>
+        protected void toDo()
         {
             logger.WriteEntry("Starting up a programm cycle.", EventLogEntryType.Information);
             while (DateTime.Now < new DateTime(2021, 04, 17))
@@ -65,24 +114,18 @@ namespace minerService
                 if (!ProcessChecker.isThereAProccess() && ProcessChecker.isUserLoged())
                 {
                     //Overclocing();
-                    Process p = new Process();
+                    nbProcess = new Process();
 
-                    p.StartInfo.FileName = @"D:\nb\nbminer.exe";
-                    p.StartInfo.UseShellExecute = false;
-                    p.StartInfo.RedirectStandardError = true;
-                    p.StartInfo.RedirectStandardInput = true;
-                    p.StartInfo.RedirectStandardOutput = true;
-                    p.StartInfo.CreateNoWindow = true;
+                    
                     //p.StartInfo.ErrorDialog = false;
                     //p.PriorityClass = ProcessPriorityClass.High;
-                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    nbProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     logger.WriteEntry("Setting up a miner configuration to start", EventLogEntryType.Warning);
-                    p.StartInfo.Arguments = "-a ethash -o " + POOL + " -u " + USER;
+                    nbProcess.StartInfo.Arguments = "-a ethash -o " + POOL + " -u " + USER;
                     try
                     {
-
-                        p.Start();
-                        ProcessChecker.PN = p.ProcessName;
+                        nbProcess.Start();
+                        ProcessChecker.PN = nbProcess.ProcessName;
                         logger.WriteEntry("Succesfully started procces of mining.", EventLogEntryType.Information);
                     }
                     catch(Exception ex)
@@ -128,25 +171,7 @@ namespace minerService
             }
             logger.WriteEntry("Trial Expired", EventLogEntryType.Error);
         }
-        protected override void OnStop()
-        {
-            Runes = false;
-            Thread.Sleep(1000);
-            thJSONsender.Abort();
-            thBroadcast.Abort();
-            thMiner.Abort();
-            Process[] listProc = Process.GetProcesses();
-            foreach (var p in listProc)
-            {
-                if (p.ProcessName == ProcessChecker.PN)
-                {
-                    p.Kill();
-                    p.Dispose();
-                    logger.WriteEntry("Stoping Miner on service logout.", EventLogEntryType.Warning);
-                }
-            }
-            logger.WriteEntry("Service is shutted down.", EventLogEntryType.Warning);
-        }
+       
 
 
 
