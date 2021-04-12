@@ -16,7 +16,8 @@ namespace minerService
         public Miner_Service()
         {
             InitializeComponent();
-
+            
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime;
         }
 
         /// ////////// VARIABLES
@@ -27,12 +28,11 @@ namespace minerService
 
         Process nbProcess;
         string POOL = "eth.2miners.com:2020", USER = "0xfc6a8b9f868ec7593c7c7e5e1682f9a421025786.GPUMiner";
-        int Runes = 1;
         /// ////////
         /// ЗАПУСК
         protected override void OnStart(string[] args)
         {
-            Runes = 1;
+            RunsState.Runs = 1;
             /////////////////Загрузка настроек
             ReadSettingAsync();
             ///////////////
@@ -70,21 +70,22 @@ namespace minerService
         /// </summary>
         protected override void OnStop()
         {
-            Interlocked.Exchange(ref Runes, 0);
+            
+            RunsState.Runs = 0;
             //Runes = 0;
             try
             {
                 while (thJSONsender.IsAlive)
                 {
                     logger.WriteEntry("Closing #1 listener.", EventLogEntryType.Warning);
-                    thJSONsender.Abort();
+                    //thJSONsender.Abort();
                     
                     Thread.Sleep(1000);
                 }
                 while (thBroadcast.IsAlive)
                 {
                     logger.WriteEntry("Closing #2 listener.", EventLogEntryType.Warning);
-                    thBroadcast.Abort();
+                    //thBroadcast.Abort();
                     
                     Thread.Sleep(1000);
                 }
@@ -231,7 +232,7 @@ namespace minerService
 
                
 
-                while (Runes==1)
+                while (RunsState.Runs==1)
                 {
                     // получаем входящее подключение
                     TcpClient client = server.AcceptTcpClient();
@@ -253,7 +254,7 @@ namespace minerService
                     client.Close();
 
                 }
-                logger.WriteEntry(Runes.ToString(), EventLogEntryType.Error);
+                logger.WriteEntry(RunsState.Runs.ToString(), EventLogEntryType.Error);
 
             }
             catch (Exception e)
@@ -278,7 +279,7 @@ namespace minerService
             string localAddress = LocalIPAddress();
             try
             {
-                while (Runes==1)
+                while (RunsState.Runs == 1)
                 {
                     byte[] data = receiver.Receive(ref remoteIp); // получаем данные
                     if (remoteIp.Address.ToString().Equals(localAddress))
