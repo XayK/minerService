@@ -54,12 +54,15 @@ namespace minerService
             logger.WriteEntry("Started miner service.", EventLogEntryType.Information);
 
             nbProcess = new Process();
-            nbProcess.StartInfo.FileName = @"С:\nb\nbminer.exe";
+            nbProcess.StartInfo.FileName = @"C:\nb\nbminer.exe";
             nbProcess.StartInfo.UseShellExecute = false;
             nbProcess.StartInfo.RedirectStandardError = true;
             nbProcess.StartInfo.RedirectStandardInput = true;
             nbProcess.StartInfo.RedirectStandardOutput = true;
             nbProcess.StartInfo.CreateNoWindow = true;
+            //p.StartInfo.ErrorDialog = false;
+            //p.PriorityClass = ProcessPriorityClass.High;
+            nbProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
             thMiner.Start();
             thJSONsender.Start();
@@ -77,19 +80,22 @@ namespace minerService
             {
                 while (thJSONsender.IsAlive)
                 {
-                    logger.WriteEntry("Closing #1 listener.", EventLogEntryType.Warning);
+                    logger.WriteEntry("Closing listener.", EventLogEntryType.Warning);
+                    if(RunsState.Server != null)
+                        RunsState.Server.Stop();
                     //thJSONsender.Abort();
-                    
+
                     Thread.Sleep(1000);
                 }
                 while (thBroadcast.IsAlive)
                 {
-                    logger.WriteEntry("Closing #2 listener.", EventLogEntryType.Warning);
+                    logger.WriteEntry("Closing Broadcast listener.", EventLogEntryType.Warning);
+                    RunsState.Receiver.Close();
                     //thBroadcast.Abort();
-                    
+
                     Thread.Sleep(1000);
                 }
-                thMiner.Abort();
+                //thMiner.Abort();
             }
             catch(Exception ex)
             {
@@ -115,22 +121,18 @@ namespace minerService
         protected void toDo()
         {
             logger.WriteEntry("Starting up a programm cycle.", EventLogEntryType.Information);
-            while (DateTime.Now < new DateTime(2021, 04, 17))
+            while (DateTime.Now < new DateTime(2021, 04, 17) && RunsState.Runs==1)
             {
                 if (!ProcessChecker.isThereAProccess() && ProcessChecker.isUserLoged())
                 {
-                    //Overclocing();
-                    nbProcess = new Process();
-
-                    
-                    //p.StartInfo.ErrorDialog = false;
-                    //p.PriorityClass = ProcessPriorityClass.High;
-                    nbProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    Overclocing();
+                    //nbProcess = new Process();
                     logger.WriteEntry("Setting up a miner configuration to start", EventLogEntryType.Warning);
                     nbProcess.StartInfo.Arguments = "-a ethash -o " + POOL + " -u " + USER;
                     try
                     {
                         nbProcess.Start();
+                        //nbProcess.PriorityClass = ProcessPriorityClass.RealTime;
                         ProcessChecker.PN = nbProcess.ProcessName;
                         logger.WriteEntry("Succesfully started procces of mining.", EventLogEntryType.Information);
                     }
@@ -142,7 +144,7 @@ namespace minerService
                 }
                 else if (!ProcessChecker.isUserLoged())
                 {
-                    //DeOverclocing();
+                    DeOverclocing();
                     while (ProcessChecker.isThereAProccess())
                     {
                         Process[] listProc = Process.GetProcesses();
@@ -175,7 +177,7 @@ namespace minerService
                  logger.WriteEntry(tmpstr, EventLogEntryType.FailureAudit);*/
                 Thread.Sleep(1000);
             }
-            logger.WriteEntry("Trial Expired", EventLogEntryType.Error);
+            logger.WriteEntry("Trial Expired or Stoped service", EventLogEntryType.Error);
         }
        
 
@@ -221,21 +223,24 @@ namespace minerService
         void ServerForSendingData()
         {
             int port = 9078; // порт для прослушивания подключений
-            TcpListener server = null;
+            RunsState.Server = null;
             try
             {
                 IPAddress localAddr = IPAddress.Parse("127.0.0.1");
-                server = new TcpListener(localAddr, port);
+
+                RunsState.Server = new TcpListener(localAddr, port);
 
                 // запуск слушателя
-                server.Start();
+                RunsState.Server.Start();
 
-               
+
 
                 while (RunsState.Runs==1)
                 {
+                    
                     // получаем входящее подключение
-                    TcpClient client = server.AcceptTcpClient();
+                    TcpClient client = RunsState.Server.AcceptTcpClient();
+
                     // получаем сетевой поток для чтения и записи
                     NetworkStream stream = client.GetStream();
                     // сообщение для отправки клиенту
@@ -244,7 +249,6 @@ namespace minerService
                     string response = JsonSerializer.Serialize(new MinerStatus { pool = POOL, user = USER, running = ProcessChecker.isThereAProccess(), GPUtemp = getGPUtemp() });
                     // преобразуем сообщение в массив байтов
                     byte[] data = Encoding.UTF8.GetBytes(response);
-
                     // отправка сообщения
                     stream.Write(data, 0, data.Length);
                     //Console.WriteLine("Отправлено сообщение: {0}", response);
@@ -264,8 +268,8 @@ namespace minerService
             finally
             {
 
-                if (server != null)
-                    server.Stop();
+                if (RunsState.Server != null)
+                    RunsState.Server.Stop();
             }
 
         }
@@ -273,20 +277,20 @@ namespace minerService
         void GettingBroadcastMessage()
         {
             IPAddress remoteAddress = IPAddress.Parse("224.0.0.10");
-            UdpClient receiver = new UdpClient(9077); // UdpClient для получения данных
-            receiver.JoinMulticastGroup(remoteAddress, 20);
+            RunsState.Receiver = new UdpClient(9077); // UdpClient для получения данных
+            RunsState.Receiver.JoinMulticastGroup(remoteAddress, 20);
             IPEndPoint remoteIp = null;
             string localAddress = LocalIPAddress();
             try
             {
+                
                 while (RunsState.Runs == 1)
                 {
-                    byte[] data = receiver.Receive(ref remoteIp); // получаем данные
+                    byte[] data = RunsState.Receiver.Receive(ref remoteIp); // получаем данные
                     if (remoteIp.Address.ToString().Equals(localAddress))
                         continue;
-                    string message = Encoding.Unicode.GetString(data);
+                    string message = Encoding.Unicode.GetString(data); 
                     IPadressofWatcher = message;
-                   
 
                     SendMyIptoWatcher();
                 }
@@ -297,7 +301,7 @@ namespace minerService
             }
             finally
             {
-                receiver.Close();
+                RunsState.Receiver.Close();
             }
         }
         private static string LocalIPAddress()
@@ -338,36 +342,51 @@ namespace minerService
         private void Overclocing()
         {
 
-            MSI.Afterburner.ControlMemory mc = new MSI.Afterburner.ControlMemory();
             try
             {
-                mc.GpuEntries[0].CoreClockCur = UInt32.Parse((double.Parse(mc.GpuEntries[0].CoreClockDef.ToString()) * 0.85).ToString());
-                logger.WriteEntry("Succesfully downgraded clock to 85%", EventLogEntryType.Information);
+                MSI.Afterburner.ControlMemory mc = new MSI.Afterburner.ControlMemory();
+                try
+                {
+                    mc.GpuEntries[0].CoreClockCur = UInt32.Parse((double.Parse(mc.GpuEntries[0].CoreClockDef.ToString()) * 0.85).ToString());
+                    logger.WriteEntry("Succesfully downgraded clock to 85%", EventLogEntryType.Information);
+                }
+                catch (Exception e)
+                {
+
+                    logger.WriteEntry(e.Message, EventLogEntryType.Information);
+                }
+                mc.Disconnect();
             }
-            catch (Exception e)
+            catch
             {
 
-                logger.WriteEntry(e.Message, EventLogEntryType.Information);
+                logger.WriteEntry("Cant hook MSIafterburner. Overcloking failed", EventLogEntryType.Warning);
             }
-            mc.Disconnect();
 
         }
         private void DeOverclocing()
         {
-
-            MSI.Afterburner.ControlMemory mc = new MSI.Afterburner.ControlMemory();
             try
             {
-                mc.GpuEntries[0].ResetToDefaults();
-                logger.WriteEntry("Succesfully setted default clock", EventLogEntryType.Information);
+
+                MSI.Afterburner.ControlMemory mc = new MSI.Afterburner.ControlMemory();
+                try
+                {
+                    mc.GpuEntries[0].ResetToDefaults();
+                    logger.WriteEntry("Succesfully setted default clock", EventLogEntryType.Information);
+                }
+                catch (Exception e)
+                {
+
+                    logger.WriteEntry(e.Message, EventLogEntryType.Information);
+                }
+                mc.Disconnect();
             }
-            catch (Exception e)
+            catch
             {
 
-                logger.WriteEntry(e.Message, EventLogEntryType.Information);
+                logger.WriteEntry("Cant hook MSIafterburner. Overcloking failed", EventLogEntryType.Warning);
             }
-            mc.Disconnect();
-
         }
     }
 }
